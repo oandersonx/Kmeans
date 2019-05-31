@@ -1,4 +1,4 @@
-function [centroides, idx] = runkMeans(X, centroides, max_iteracao, plot_progress)
+function [centroides, idx] = kmeans(X, centroides, max_iteracao, plot_progress)
 % essa função é responsável por executar o algoritmo K-means
 %   X -> dataset
 %   initial_centroids -> coordenadas da posição inicial dos centróides  
