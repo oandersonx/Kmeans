@@ -27,7 +27,7 @@ end
 [m n] = size(X);
 K = size(centroides, 1);
 centroides_m = centroides;
-previous_centroids = centroids_m;
+previous_centroids = centroides_m;
 idx = zeros(m, 1);
 
 % Loop iterativo

@@ -56,7 +56,7 @@ fprintf('\n Rodando o K-Means nos pixels da imagem.\n\n');
 % Por exemplo, A (50, 33, 3) fornece a intensidade azul do pixel na linha 50 
 %e na coluna 33.
 
-A = double (imread('teste.jpg'));
+A = double (imread('dog.jpg'));
 %load ('bird_small.mat');
 
 
@@ -72,12 +72,12 @@ img_size = size(A);
 X = reshape(A, img_size(1) * img_size(2), 3);
 
 % Você deve testar diferentes valores de K e max_iters aqui 
-K = 16; 
-max_iteracao = 10;
+K = 3; 
+max_iteracao = 20;
 
 % Aqui, foram definidos valores especificos para iniciar os centroides 
 % voce deve inicializa-los randomicamente atraves da funcao kMeansInitCentroids
-centroides_iniciais = randCentroide(X, K);
+centroides_iniciais = randCentroides(X, K);
 
 % Executa K-Means
 [centroides, idx] = kmeans(X, centroides_iniciais, max_iteracao);
