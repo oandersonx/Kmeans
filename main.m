@@ -22,3 +22,10 @@ fprintf('\nEtapa de movimentacao do cluster: define as novas posicoes dos centro
 % Calcula a nova posicao do centroide com base na media dos exemplos de treinamento
 % que estao associados a ele 
 centroides = movimentacao(X, idx, K);
+
+fprintf('Nova posicao dos centroides:  \n')
+fprintf(' %f %f \n' , centroides');
+fprintf('\n As novas coordenadas dos centroides devem ser: \n');
+fprintf('   [ 2.428301 3.157924 ]\n');
+fprintf('   [ 5.813503 2.633656 ]\n');
+fprintf('   [ 7.119387 3.616684 ]\n\n');

@@ -20,7 +20,7 @@ idx = zeros(size(X,1), 1);
 for i = 1:m
     distancia = zeros(1,K);
     for j = 1:K
-        distancia(1,j) = sum(power((X(i,:)-centroids(j,:)),2));
+        distancia(1,j) = sum(power((X(i,:)-centroides(j,:)),2));
     end
     [ponto_mediox, pontomedioy] = min(distancia);
     idx(i,1) = pontomedioy;
