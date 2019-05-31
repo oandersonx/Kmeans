@@ -73,8 +73,38 @@ X = reshape(A, img_size(1) * img_size(2), 3);
 
 % VocÃª deve testar diferentes valores de K e max_iters aqui 
 K = 16; 
-max_iters = 10;
+max_iteracao = 10;
 
 % Aqui, foram definidos valores especificos para iniciar os centroides 
 % voce deve inicializa-los randomicamente atraves da funcao kMeansInitCentroids
-initial_centroids = kMeansInitCentroids(X, K);
+centroides_iniciais = randCentroide(X, K);
+
+% Executa K-Means
+[centroides, idx] = kmeans(X, centroides_iniciais, max_iteracao);
+
+%% CompressÃ£o da Imagem 
+fprintf('\nAplicando K-Means para comprimir a imagem.\n\n');
+
+% Depois de encontrar as K=16 cores (centroids) para representar a imagem
+% Ultiliza-se a funcao findClosestCentroids.m para atribuir 
+% cada posicao do pixel ao seu centroide mais proximo. 
+ 
+idx = associacao(X, centroides);
+
+% é possivel recuperar a imagem comprimida através dos indices dos centroides
+% mapeados no vetor idx
+X_recovered = centroides(idx,:);
+
+% Redimensiona a imagem recuperada 
+X_recovered = reshape(X_recovered, img_size(1), img_size(2), 3);
+
+% Plota a figura original
+subplot(1, 2, 1);
+imagesc(A);
+title('Original');
+
+% Plota a figura comprimida
+subplot(1, 2, 2);
+imagesc(X_recovered)
+title(sprintf('Comprimida pelo K-means, com %d cores.', K));
+
